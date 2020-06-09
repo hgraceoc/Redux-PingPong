@@ -23,23 +23,21 @@ const incrementP1 = (state) => {
       player1Serving: (state.player1Score + state.player2Score) % 5 === 0 ? !state.player1Serving : state.player1Serving
     }
   }
-  
+
+  const diff = (state) => {
+      return Math.abs(state.player1Score-state.player2Score); 
+  }
+  //Math.abs will only return a positive difference 
+
+
   const setWinner = (state) => {
     return { 
       ...state, 
-      winner: (state.player1Score >= 21 ? 1 : state.player2Score >= 21 ? 2 : 0)
+      winner: (state.player1Score >= 21 && diff(state) >= 2 ? 1 : state.player2Score >= 21 && diff(state) >= 2 ? 2 : 0)
     }
   
   }
   
-  const scoreDIff = (state) => {
-    return {
-      ...state, 
-      
-    }
-    
-  
-  }
   
   const reducer = (state, action) => {
     switch (action.type) {

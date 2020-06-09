@@ -27,5 +27,6 @@ const Player = (
 );
 
 
-
 export default Player; 
+
+//updated the props to be relevant across players, making it more reusable 
