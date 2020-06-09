@@ -16,11 +16,18 @@ const incrementP1 = (state) => {
       player2Score : state.player2Score + 1
     }
   }
+
+  const above20 = (state) => {
+      return (state.player1Score && state.player2Score >= 20) ? true : false;
+  };
   
   const setServer = (state) => {
     return {
       ...state,
-      player1Serving: (state.player1Score + state.player2Score) % 5 === 0 ? !state.player1Serving : state.player1Serving
+      player1Serving: 
+      above20(state) ? ((state.player1Score + state.player2Score) % 1 === 0 ? !state.player1Serving : state.player1Serving) : 
+      
+      (state.player1Score + state.player2Score) % 5 === 0 ? !state.player1Serving : state.player1Serving
     }
   }
 
