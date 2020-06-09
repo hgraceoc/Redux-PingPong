@@ -4,6 +4,7 @@ import PlayerCard from "./components/PlayerCard";
 
 import Player1 from "./components/Player/Player1";
 import Player2 from "./components/Player/Player2";
+import ResultTable from "./components/Table";
 
 const App = ({
   player1,
@@ -39,6 +40,10 @@ const App = ({
       { /* reset button */}
       <button className="btn btn-danger"
         onClick={reset}>Reset</button>
+
+        <ResultTable>
+
+        </ResultTable>
     </React.Fragment>
   );
 

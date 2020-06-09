@@ -7,7 +7,7 @@ const Player = (
     winner,
     serving,
     handleIncrement
-}
+    }   
 ) => (
 
     <div className="col-md-6 mt-4">
