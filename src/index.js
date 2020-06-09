@@ -9,11 +9,14 @@ import persistState from "redux-localstorage";
 import store from "./data/store";
 import initial from "../src/data/initial";
 
+import { Provider } from "react-redux";
+
 const render = () => {
   let state = store.getState();
 
   ReactDOM.render(
     <React.StrictMode>
+      <Provider store={ store }>
       <App
         player1 = {state.player1}
         player2 = {state.player2}
@@ -23,6 +26,7 @@ const render = () => {
         handleIncrementP2={ () => store.dispatch({ type: "INCREMENT_P2"})}
         reset={ () => store.dispatch({ type: "RESET"})}
       />
+      </Provider>
     </React.StrictMode>,
     document.getElementById('root')
   );

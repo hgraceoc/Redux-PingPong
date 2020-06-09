@@ -1,4 +1,8 @@
 import React from "react";
+import Header from "./components/Header";
+import PlayerCard from "./components/PlayerCard";
+
+import Value from "./components/Value";
 
 const App = ({
   player1,
@@ -10,40 +14,23 @@ const App = ({
   winner,
 }) => (
     <React.Fragment>
-      {/* header */}
-      <header className="jumbotron mt-4 mb-0">
-        <h1>PongPing</h1>
-      </header>
+      <Header />
 
       {/* scores */}
       <div className="row mb-4">
-        <div className="col-md-6 mt-4">
-          <div className={"card text-center" + (player1Serving ? " bg-dark text-white" : "")}>
-            <h5 className="card-header">Player 1</h5>
-            <div className="card-body">
-              <p className="card-text display-1">{player1}</p>
-            </div>
-            <div className="card-footer">
-              <button className={"form-control btn btn-success" + (winner === 0 ?  " " : " disabled")}
-                onClick={handleIncrementP1}
-              >+</button>
-            </div>
-          </div>
-        </div>
+        <PlayerCard
+          player="Player 1"
+          winner={winner}
+          playerNum={player1}
+          handleIncrement={handleIncrementP1}
+        ></PlayerCard>
 
-        <div className="col-md-6 mt-4">
-          <div className={"card text-center" + (player1Serving ? " " : " bg-dark text-white")}>
-            <h5 className="card-header">Player 2</h5>
-            <div className="card-body">
-              <p className="card-text display-1">{player2}</p>
-            </div>
-            <div className="card-footer">
-              <button className={"form-control btn btn-success" + (winner === 0 ?  " " : " disabled")}
-                onClick={handleIncrementP2}
-              >+</button> 
-            </div>
-          </div>
-        </div>
+        <PlayerCard
+          player="Player 2"
+          winner={winner}
+          playerNum={player2}
+          handleIncrement={handleIncrementP2}
+        ></PlayerCard>
       </div>
 
       { /* winner message */}
@@ -51,7 +38,6 @@ const App = ({
       {winner === 0 ? null :
         <h2 className="alert alert-success">Player {winner} wins!</h2>
       }
-
 
       <hr />
 
