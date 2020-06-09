@@ -6,28 +6,28 @@ import initial from "../data/initial";
 const incrementP1 = (state) => {
     return {
       ...state, 
-      player1 : state.player1 + 1
+      player1Score : state.player1Score + 1
     }
   }
   
   const incrementP2 = (state) => {
     return {
       ...state, 
-      player2 : state.player2 + 1
+      player2Score : state.player2Score + 1
     }
   }
   
   const setServer = (state) => {
     return {
       ...state,
-      player1Serving: (state.player1 + state.player2) % 5 === 0 ? !state.player1Serving : state.player1Serving
+      player1Serving: (state.player1Score + state.player2Score) % 5 === 0 ? !state.player1Serving : state.player1Serving
     }
   }
   
   const setWinner = (state) => {
     return { 
       ...state, 
-      winner: (state.player1 >= 21 ? 1 : state.player2 >= 21 ? 2 : 0)
+      winner: (state.player1Score >= 21 ? 1 : state.player2Score >= 21 ? 2 : 0)
     }
   
   }
@@ -49,7 +49,7 @@ const incrementP1 = (state) => {
       case "INCREMENT_P2": return setWinner(setServer(incrementP2(state)));
       // case "INCREMENT_P2": return {
       //   ...state, 
-      //   player2: state.player2 + 1
+      //   player2Score: state.player2Score + 1
       // };
       case "RESET": return initial 
       default: return state;

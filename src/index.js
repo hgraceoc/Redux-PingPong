@@ -8,11 +8,12 @@ import persistState from "redux-localstorage";
 
 import store from "./data/store";
 import initial from "../src/data/initial";
+import reducer from "../src/data/reducers";
 
 import { Provider } from "react-redux";
 
-const render = () => {
-  let state = store.getState();
+
+ const state = store.getState();
 
   ReactDOM.render(
     <React.StrictMode>
@@ -30,22 +31,3 @@ const render = () => {
     </React.StrictMode>,
     document.getElementById('root')
   );
-}; 
-
-store.subscribe(render);
-render();
-
-store.dispatch({ type: "INCREMENT" });
-//dispatch - writing the state
-
-
-
-
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );
-
-

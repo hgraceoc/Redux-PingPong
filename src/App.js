@@ -2,7 +2,8 @@ import React from "react";
 import Header from "./components/Header";
 import PlayerCard from "./components/PlayerCard";
 
-import Value from "./components/Value";
+import Player1 from "./components/Player/Player1";
+import Player2 from "./components/Player/Player2";
 
 const App = ({
   player1,
@@ -18,19 +19,13 @@ const App = ({
 
       {/* scores */}
       <div className="row mb-4">
-        <PlayerCard
-          player="Player 1"
-          winner={winner}
-          playerNum={player1}
+        <Player1
           handleIncrement={handleIncrementP1}
-        ></PlayerCard>
+        ></Player1>
 
-        <PlayerCard
-          player="Player 2"
-          winner={winner}
-          playerNum={player2}
+        <Player2
           handleIncrement={handleIncrementP2}
-        ></PlayerCard>
+        ></Player2>
       </div>
 
       { /* winner message */}
