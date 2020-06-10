@@ -5,7 +5,8 @@ import Table from 'react-bootstrap/Table'
 
 const ResultTable = (
     {
-        history
+        history,
+        player1Score
     }
 ) => (
 
@@ -22,13 +23,13 @@ const ResultTable = (
             </thead>
 
             <tbody> {
-                history.map((history =>
+                history.map((game, index) =>
                     <tr>
-                        <td>{}</td>
-                        <td>{history.player_1.score}</td>
-                        <td>{history.player_2.score}</td>
+                        <td>{index + 1}</td>
+                        <td>{game.player_1.score}</td>
+                        <td>{game.player_2.score}</td>
                         </tr>
-                    ))}
+                    )}
             </tbody>
 
 
