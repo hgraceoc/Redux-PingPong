@@ -1,11 +1,25 @@
 import { connect } from "react-redux";
 
-
+import history from "../../history";
 import SetUpGame from "./SetUpGame";
-const mapStateToProps = state => {
-  return {
-    player1: state.player1,
-    player2: state.player2,
-  };
+import { setMatch } from "../../data/actions";
+
+const mapStateToProps = (state) => {
+    return {
+        player1: state.player1,
+        player2: state.player2,
+    };
 };
-export default connect(mapStateToProps)(SetUpGame);
+
+const mapDispatchToProps = dispatch => {
+    return {
+        handleSubmit: data => {
+            
+            dispatch(setMatch(data));
+            
+            history.push("/");
+        },
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SetUpGame);

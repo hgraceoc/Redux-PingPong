@@ -11,7 +11,9 @@ import PlayerCard from "./components/PlayerCard";
 import Player1 from "./components/Player/Player1";
 import Player2 from "./components/Player/Player2";
 import ResultTable from "./components/ResultTable/ResultTable";
-import SetUpGame from "./components/SetUpGame/SetUpGame";
+import SetUpGame from "./components/SetUpGame";
+
+import history from "../src/history";
 
 const App = ({
   player1,
@@ -22,7 +24,7 @@ const App = ({
   player1Serving,
   winner,
 }) => (
-    <Router>
+    <Router history={ history }>
       <React.Fragment>
         <Header />
 

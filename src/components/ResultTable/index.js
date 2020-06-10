@@ -2,40 +2,37 @@ import React from "react";
 import Table from 'react-bootstrap/Table'
 
 
-
 const ResultTable = (
     {
         history,
-        player1Score
+        player1Score,
+        player1,
+        player2
     }
 ) => (
 
 
-        <Table responsive>
+    <Table responsive>
+        <thead>
+            <tr>
+                <th>Game</th>
+                <th>{player1}</th>
+                <th>{player2}</th>
+            </tr>
+        </thead>
 
-            <thead>
+        <tbody> {
+            history.map((game, index) =>
                 <tr>
-                    <th>Game</th>
-                    <th>Player One</th>
-                    <th>Player Two</th>
-                    {/* <th>Winner</th> */}
+                    <td>{index + 1}</td>
+                    <td>{game.player_1.score}</td>
+                    <td>{game.player_2.score}</td>
                 </tr>
-            </thead>
-
-            <tbody> {
-                history.map((game, index) =>
-                    <tr>
-                        <td>{index + 1}</td>
-                        <td>{game.player_1.score}</td>
-                        <td>{game.player_2.score}</td>
-                        </tr>
-                    )}
-            </tbody>
-
-
-        </Table>
+            )}
+        </tbody>
+    </Table>
 )
-    
+
 
 
 

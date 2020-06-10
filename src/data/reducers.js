@@ -3,6 +3,7 @@ import persistState from "redux-localstorage";
 
 import initial from "../data/initial";
 
+
 const incrementP1 = (state) => {
   return {
     ...state,
@@ -45,8 +46,6 @@ const setWinner = (state) => {
 
 }
 
-//create a function that wraps around other functions to store data when a winner is reached, or otherwise return data
-
 const storeResult = (state) => {
   if (state.winner > 0) {
     return {
@@ -72,8 +71,16 @@ const storeResult = (state) => {
     return state
   }
 
-
 }
+
+const setMatch = (state, action) => (
+  {
+    ...state,
+    player1: action.data.player1,
+    player2: action.data.player2
+  }
+)
+
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -85,6 +92,8 @@ const reducer = (state, action) => {
     //   ...state, 
     //   player2Score: state.player2Score + 1
     // };
+    case "SET_MATCH": return setMatch(state, action);
+
     case "RESET": return {
 
     ...initial, history: state.history

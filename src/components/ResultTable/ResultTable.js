@@ -6,7 +6,9 @@ import ResultTable from "../ResultTable";
  const mapStateToProps = state => {
   return {
       history: state.history,
-      player1Score: state.player1Score
+      player1Score: state.player1Score,
+      player1: state.player1,
+      player2: state.player2
   };
 };
 
