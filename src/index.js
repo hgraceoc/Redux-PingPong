@@ -23,6 +23,7 @@ import { Provider } from "react-redux";
         player2 = {state.player2}
         player1Serving = {state.player1Serving}
         winner = {state.winner}
+        history = {state.history}
         handleIncrementP1={ () => store.dispatch({ type: "INCREMENT_P1"})}
         handleIncrementP2={ () => store.dispatch({ type: "INCREMENT_P2"})}
         reset={ () => store.dispatch({ type: "RESET"})}

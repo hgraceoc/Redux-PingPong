@@ -4,7 +4,7 @@ import PlayerCard from "./components/PlayerCard";
 
 import Player1 from "./components/Player/Player1";
 import Player2 from "./components/Player/Player2";
-import ResultTable from "./components/Table";
+import ResultTable from "./components/ResultTable/ResultTable";
 
 const App = ({
   player1,
