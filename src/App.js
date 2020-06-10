@@ -1,10 +1,17 @@
 import React from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Link,
+} from "react-router-dom";
 import Header from "./components/Header";
 import PlayerCard from "./components/PlayerCard";
 
 import Player1 from "./components/Player/Player1";
 import Player2 from "./components/Player/Player2";
 import ResultTable from "./components/ResultTable/ResultTable";
+import SetUpGame from "./components/SetUpGame/SetUpGame";
 
 const App = ({
   player1,
@@ -15,36 +22,51 @@ const App = ({
   player1Serving,
   winner,
 }) => (
-    <React.Fragment>
-      <Header />
+    <Router>
+      <React.Fragment>
+        <Header />
 
-      {/* scores */}
-      <div className="row mb-4">
-        <Player1
-          handleIncrement={handleIncrementP1}
-        ></Player1>
+        <Route exact path="/">
+          <>
+            <Link className="m-4" to="/set-up">Set Up Game</Link>
+          
+          {/* scores */}
+          <div className="row mb-4">
+            <Player1
+              handleIncrement={handleIncrementP1}
+            ></Player1>
 
-        <Player2
-          handleIncrement={handleIncrementP2}
-        ></Player2>
-      </div>
+            <Player2
+              handleIncrement={handleIncrementP2}
+            ></Player2>
+          </div>
 
-      { /* winner message */}
+          { /* winner message */}
 
-      {winner === 0 ? null :
-        <h2 className="alert alert-success">Player {winner} wins!</h2>
-      }
+          {winner === 0 ? null :
+            <h2 className="alert alert-success">Player {winner} wins!</h2>
+          }
 
-      <hr />
+          <hr />
 
-      { /* reset button */}
-      <button className="btn btn-danger"
-        onClick={reset}>Reset</button>
+          { /* reset button */}
+          <button className="btn btn-danger m-4"
+            onClick={reset}>Reset</button>
 
-        <ResultTable>
+          <ResultTable />
+        </>
+        </Route>
 
-        </ResultTable>
-    </React.Fragment>
+        <Route exact path="/set-up">
+          <>
+          <SetUpGame />
+          <Link className="m-4" to="/">Home</Link>
+          </>
+        </Route>
+
+
+      </React.Fragment>
+    </Router>
   );
 
 export default App;

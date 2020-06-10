@@ -6,7 +6,9 @@ const initial = {
     player2Score: 0,
     player1Serving: true,
     winner: 0, 
-    history: []
+    history: [],
+    player1: "",
+    player2:""
   };
 
   export default initial;
