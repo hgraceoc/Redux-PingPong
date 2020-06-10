@@ -41,7 +41,7 @@ const diff = (state) => {
 const setWinner = (state) => {
   return {
     ...state,
-    winner: (state.player1Score >= 21 && diff(state) >= 2 ? 1 : state.player2Score >= 21 && diff(state) >= 2 ? 2 : 0)
+    winner: (state.player1Score >= (state.winningScore) && diff(state) >= 2 ? 1 : state.player2Score >= (state.winningScore) && diff(state) >= 2 ? 2 : 0)
   }
 
 }
@@ -77,9 +77,11 @@ const setMatch = (state, action) => (
   {
     ...state,
     player1: action.data.player1,
-    player2: action.data.player2
+    player2: action.data.player2,
+    winningScore: action.data.winningScore
   }
 )
+
 
 
 const reducer = (state, action) => {

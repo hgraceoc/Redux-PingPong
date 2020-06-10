@@ -8,10 +8,12 @@ class SetUpGame extends Component {
     this.state = {
       player1: props.player1,
       player2: props.player2,
+      winningScore: props.winningScore
     };
 
     this.setPlayer1 = this.setPlayer1.bind(this);
     this.setPlayer2 = this.setPlayer2.bind(this);
+    this.setWinningScore = this.setWinningScore.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   setPlayer1(e) {
@@ -20,12 +22,15 @@ class SetUpGame extends Component {
   setPlayer2(e) {
     this.setState({ player2: e.currentTarget.value });
   }
+  setWinningScore(e) {
+    this.setState({ winningScore: e.currentTarget.value });
+  }
   handleSubmit(e) {
     e.preventDefault();
     this.props.handleSubmit(this.state)
   }
   render() {
-    let { player1, player2 } = this.state;
+    let { player1, player2, winningScore } = this.state;
     
 
     return (
@@ -44,13 +49,13 @@ class SetUpGame extends Component {
             value={player2}
           />
 
-          {/* <label>Set Winning Score</label>
+          <label>Set Winning Score</label>
           <input
             className="form-control"
-            onChange={this.handleChange}
+            onChange={this.setWinningScore}
             value={winningScore}
             type="number"
-          /> */}
+          />
 
         </div>
         <button className="btn btn-primary m-4">Save</button>
