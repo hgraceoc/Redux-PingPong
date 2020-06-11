@@ -1,5 +1,7 @@
 import { connect } from "react-redux";
 
+import { incrementP1 } from "../../data/actions";
+
 import Player from "./Player";
 //import the component that we want to wrap
 
@@ -9,11 +11,16 @@ import Player from "./Player";
     playerName: state.player1,
     serving: state.player1Serving,
     winner: state.winner,
-    handleIncrementP1: () => dispatch(incrementP1()),
   };
 };
 
-export default connect(mapStateToProps)(Player);
+const mapDispatchToProps = dispatch => {
+  return {
+    handleIncrementP1: () => dispatch(incrementP1()),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Player);
 // use the connect function to connect mapStateToProps
 // to the React component we want to wrap
 // returns a new React component
