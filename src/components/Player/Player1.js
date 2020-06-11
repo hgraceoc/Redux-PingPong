@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-import { incrementP1 } from "../../data/actions";
+import { incrementP1 } from "../../data/actions/state";
 
 import Player from "./Player";
 //import the component that we want to wrap

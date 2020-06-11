@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 
 import history from "../../history";
 import SetUpGame from "./SetUpGame";
-import { setMatch } from "../../data/actions";
+import { setMatch } from "../../data/actions/state";
 
 const mapStateToProps = (state) => {
     return {
