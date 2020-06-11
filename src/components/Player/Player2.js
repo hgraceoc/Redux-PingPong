@@ -8,7 +8,8 @@ import Player from "./Player";
     score: state.player2Score,
     playerName: state.player2,
     serving: !state.player1Serving,
-    winner: state.winner
+    winner: state.winner,
+    handleIncrementP2: () => dispatch(incrementP2()),
   };
 };
 
