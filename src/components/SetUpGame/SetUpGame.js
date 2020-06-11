@@ -8,12 +8,14 @@ class SetUpGame extends Component {
     this.state = {
       player1: props.player1,
       player2: props.player2,
-      winningScore: props.winningScore
+      winningScore: props.winningScore,
+      alternate: props.alternate,
     };
 
     this.setPlayer1 = this.setPlayer1.bind(this);
     this.setPlayer2 = this.setPlayer2.bind(this);
     this.setWinningScore = this.setWinningScore.bind(this);
+    this.setAlternate = this.setAlternate.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   setPlayer1(e) {
@@ -25,12 +27,15 @@ class SetUpGame extends Component {
   setWinningScore(e) {
     this.setState({ winningScore: e.currentTarget.value });
   }
+  setAlternate(e) {
+    this.setState({ alternate: e.currentTarget.value });
+  }
   handleSubmit(e) {
     e.preventDefault();
     this.props.handleSubmit(this.state)
   }
   render() {
-    let { player1, player2, winningScore } = this.state;
+    let { player1, player2, winningScore, alternate } = this.state;
     
 
     return (
@@ -54,6 +59,14 @@ class SetUpGame extends Component {
             className="form-control"
             onChange={this.setWinningScore}
             value={winningScore}
+            type="number"
+          />
+
+          <label>Alternate Server Every</label>
+          <input
+            className="form-control"
+            onChange={this.setAlternate}
+            value={alternate}
             type="number"
           />
 

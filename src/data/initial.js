@@ -9,7 +9,8 @@ const initial = {
     history: [],
     player1: "",
     player2: "",
-    winningScore: 21
+    winningScore: 21,
+    alternate: 0,
   };
 
   export default initial;

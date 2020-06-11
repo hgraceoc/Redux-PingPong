@@ -28,7 +28,7 @@ const setServer = (state) => {
     player1Serving:
       above20(state) ? ((state.player1Score + state.player2Score) % 1 === 0 ? !state.player1Serving : state.player1Serving) :
 
-        (state.player1Score + state.player2Score) % 5 === 0 ? !state.player1Serving : state.player1Serving
+        (state.player1Score + state.player2Score) % state.alternate === 0 ? !state.player1Serving : state.player1Serving
   }
 }
 
@@ -78,7 +78,8 @@ const setMatch = (state, action) => (
     ...state,
     player1: action.data.player1,
     player2: action.data.player2,
-    winningScore: action.data.winningScore
+    winningScore: action.data.winningScore,
+    alternate: action.data.alternate
   }
 )
 
@@ -98,9 +99,15 @@ const reducer = (state, action) => {
 
     case "RESET": return {
 
-    ...initial, history: state.history
+    ...initial, 
+    history: state.history,
+    player1: state.player1,
+    player2: state.player2,
+    winningScore: state.winningScore,
+    alternate: state.alternate
     }
     default: return state;
+    //when resetting, return initial state - but maintain the updated states of history, player names and winning score
   }
 };
 //any changes to the state, can only be set in the reducer 
